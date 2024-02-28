@@ -1,0 +1,47 @@
+<%- include('partials/header')%>
+
+    <main class="tool_Area">
+      <h1>
+        <a href="/"
+          >Optimizador de imágenes
+          <img src="favicon.png" alt="Logo de Mataraya" />
+        </a>
+      </h1>
+      <p class="description">
+        Optimiza la calidad y compresión de tus imágenes en formato
+        <b>JPG, PNG, SVGO, WEBP o GIF</b> de manera efectiva. Reduce el tamaño
+        de múltiples imágenes al mismo tiempo y mejora el rendimiento de tu
+        página web.
+      </p>
+      <div class="content-quality" id="content-quality">
+        <p>Selecciona la resolución en la que quieres optimizar tu imagen:</p>
+        <select class="select-quality" id="select-quality">
+          <option value="">Seleccione</option>
+          <option value="1920x1080">1920x1080</option>
+          <option value="1280x720">1280x720</option>
+          <option value="720x480">720x480</option>
+          <option value="426x240">426x240</option>
+        </select>
+      </div>
+      <Section class="drop-area">
+        <div class="file-upload-drag">
+          <p class="drag-text">Haz "click" aquí y selecciona tu imagen</p>
+          <input
+            id="input-file"
+            type="file"
+            accept="image/jpeg, image/jpg, image/png, image/svgo, image/webp, image/gif"
+          />
+        </div>
+        <div id="preview"></div>
+      </Section>
+
+      <button id="uploadFile">Subir archivo</button>
+
+      <div class="dowload-image" id="view">
+
+      </div>
+    </main>
+    <!-- <%- include('partials/footer')%> -->
+    <script src="/script.js"></script>
+    
+  
