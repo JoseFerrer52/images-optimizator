@@ -9,7 +9,7 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
 import fs from "fs/promises";
-import { deleteOldImages, deleteOldImagesOfInput } from "./deleteFiles.js";
+import { deleteOldImagesOfOutput, deleteOldImagesOfInput } from "./deleteFiles.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 let outputFolder = join(__dirname, "../output");

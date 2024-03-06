@@ -39,7 +39,7 @@ buttonForUploadFile.addEventListener("click", (event) => {
 /* inicia el evento de tipo change en mi area de arrastar para que cada vez que el valor se identifique los archivos que 
 estan cambiando y asi subirlos aun servido */
 input.addEventListener("change", (event) => {
-  files = event.target.files;
+  files = event.target.files[0];
   console.log(files);
   dropArea.classList.add("active");
   showFiles(files);
@@ -48,14 +48,8 @@ input.addEventListener("change", (event) => {
 
 /* aqui se valida si el elemento que llega por parametro en la funcion en uno o varios elemntos  */
 
-function showFiles(files) {
-  if (files.length === undefined) {
-    processFile(files);
-  } else {
-    for (const file of files) {
-      processFile(file);
-    }
-  }
+function showFiles(file) {
+     processFile(file);
 }
 
 /* valida que los elemntos traidos por paramatros en la varible files sean correctos e 
@@ -81,8 +75,8 @@ function processFile(file) {
               <div/>
             <div/>
             `;
-    const html = document.querySelector("#preview").innerHTML;
-    document.querySelector("#preview").innerHTML = image + html;
+    // const html = document.querySelector("#preview").innerHTML;
+    document.querySelector("#preview").innerHTML = image;
 
     // Guardo el archivo en una variable para mantener el archivo en memoria hasta que el usuario presione el botón con id "uploadFile"
     fileUploaded = file;
@@ -117,9 +111,14 @@ async function uploadFile(file, resolution) {
     //en la variable imgName se esta seleccionando el nombre que tendra la imagen al momento de descargarse
     const imgName = responseText.optimizedImagePath.split("/")[1];
 
-    const img = `<button id="uploadFile"><a href="${imgRoute}" target="_blank" download="${imgName}">Descargar Imagen xd</a></button>`;
+    const img = `<a class="dowloadFile" id="dowloadFile" href="${imgRoute}" target="_blank" download="${imgName}">Descargar Imagen xd</a>`;
     document.querySelector("#view").innerHTML = img;
     document.querySelector("#preview").remove();
+    document.querySelector("#content-quality").remove()
+    document.querySelector(".drop-area").remove()
+    document.querySelector("#uploadFile").remove()
+
+
 
     setTimeout(() => {
       document.querySelector("#view").remove();

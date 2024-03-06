@@ -39,7 +39,7 @@ const allowedResolutions = [
   "426x240",
 ];
 
-const allowedMaximumCharacters = /^[\s\S]{0,51}$/g
+const allowedMaximumCharacters = /^.{0,60}$/
 
 // la funcion helperprocessImage llama y ejecuta la funcion processImg donde se optimizara las imagenes
 async function helperprocessImage(filePath, resolution) {
@@ -61,7 +61,8 @@ router.post("/", upload.single("file"), async (req, res) => {
       return res.status(400).send("Formato de archivo inválido");
     }
     // Valida que el nombre de la imagen no sea tan largo
-    if (allowedMaximumCharacters.test(req.file.originalname)) {
+    if (!allowedMaximumCharacters.test(req.file.originalname)) {
+      console.log("error desde el nombre");
       return res.status(400).send("El nombre del archivo es muy largo")
     }
 
@@ -83,7 +84,7 @@ router.post("/", upload.single("file"), async (req, res) => {
 
 
   } catch (error) {
-    console.error("Error al procesar la imagen en routas:", error);
+    console.error("Error to processs image in routers:", error);
     res.status(500).send(`Ocurrió un error al procesar la imagen ${req.file.originalname}`);
   }
 });

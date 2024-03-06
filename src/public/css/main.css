@@ -14,8 +14,8 @@ html {
 
 .tool_Area {
   text-align: center;
-  height: 100%;
-  padding: 24px;
+  /* height: 100%; */
+  /* padding: 24px; */
   box-sizing: border-box;
   /* display: flex; */
   /* background-color: #f5f5fa; */
@@ -60,13 +60,14 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   /* background-color: rgba(203, 231, 243); */
-  margin: 0%;
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
+  /* margin-bottom: 50%; */
 }
 
-body::before {
+body:before {
   content: "";
   position: absolute;
   left: 0;
@@ -75,6 +76,8 @@ body::before {
   top: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
+  /* width: 100%;
+  min-height: 100vh; */
 }
 
 .content-quality {
@@ -121,7 +124,7 @@ body::before {
   align-items: center;
   border-radius: 10px;
   border: solid 2px #dae8ed;
-  height: 37%;
+  padding: 5rem 4rem;
   margin: 0 20%;
   cursor: pointer;
   transition: all 300ms ease-in-out;
@@ -138,26 +141,33 @@ body::before {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
-  border: solid 1px #fff;
   
 }
 
-button{
+button, a.dowloadFile{
   background-color: var(--color-principal);
   cursor: pointer;
   color: #eee;
   text-shadow: 1px 1px 3px #000;
   letter-spacing: 1px;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  border: none;
+  font-size: 1rem;
   border-radius: 0.75rem;
-  padding: 0.5rem 2rem;
+  padding: 0.8rem 9rem;
   margin-top: 1rem;
   transition: all .3s ease-in-out;
 }
 button:hover {
   
-  opacity: .85;
+  transform: scale(0.95, 0.9);
+}
+
+a.dowloadFile{
+  padding: 1.5rem 5rem;
+  font-size: 2rem;
+  margin-top: 1rem;
+  display: inline-block;
 }
 
 #preview {
@@ -166,8 +176,6 @@ button:hover {
   text-shadow: 1px 1px 3px #000;
   letter-spacing: 1px;
 }
-
-
 
 .status-text {
   padding: 0 10px;
@@ -192,7 +200,8 @@ button:hover {
   text-align: center;
   z-index: 10;
   padding: 0.5rem 0;
-  position: absolute;
+  position: relative;
+  margin-top: 1.5rem;
   bottom: 0;
   width: 100%;
 }

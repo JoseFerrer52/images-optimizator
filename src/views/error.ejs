@@ -1,7 +1,16 @@
-<%- include('partials/header')%>
-    
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/error.css" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+<div class="div">
 <h1><%= title %></h1>
-    <p><%= message %>
-    <a href="/">↩️🏠 Volver</a></p>
-    
+    <p class="message"><%= message %></p>
+    <a class="button-home" href="/">Volver</a>
+</div>
 <%- include('partials/footer')%>
