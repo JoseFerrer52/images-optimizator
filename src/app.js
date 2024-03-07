@@ -22,7 +22,7 @@ app.use(express.static(join(__dirname, "public/js")));
 app.use("/output", express.static(join(__dirname, 'output')));
 app.use(express.json())
 app.use(helmet());
-app.use(cors());
+app.use(cors({}));
 
 app.use(router);
 app.use(errorRouter)
