@@ -9,8 +9,8 @@ html {
 }
 
 :root {
-  --color-principal: rgba(158, 205, 255, 0.329);
-  --color-principal-focus: rgba(158, 205, 255, 0.6);
+  --color-principal: #9ecdff54;
+  --color-principal-focus: #9ecdffb3;
 }
 
 .tool_Area {
@@ -146,9 +146,7 @@ body:before {
   gap: 10px;
 }
 
-button,
-a.dowloadFile,
-a.back-home {
+button {
   background-color: var(--color-principal);
   cursor: pointer;
   color: #eee;
@@ -180,16 +178,34 @@ button[disabled="disabled"]:hover{
 
 a.dowloadFile,
 a.back-home {
-  display: inline-flex;
+  background-color: var(--color-principal);
+  cursor: pointer;
+  color: #eee;
+  text-shadow: 1px 1px 3px #000;
+  letter-spacing: 1px;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  border: none;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease-in-out;
   padding: 1.5rem 2.5rem;
   font-size: 1.25rem;
   margin-top: 1rem;
   display: inline-block;
   align-items: center;
 }
+
+
 a.dowloadFile img {
   width: 30px;
   margin: 0.5rem;
+}
+
+a.dowloadFile:hover {
+  transform: scale(0.95, 0.9);
+}
+
+a.dowloadFile:active{
+  background-color: var(--color-principal-focus);
 }
 
 a.back-home {
@@ -203,6 +219,14 @@ a.back-home {
 a.back-home img {
   width: 23px;
   margin: 0.5rem;
+}
+
+a.back-home:hover {
+  transform: scale(0.95, 0.9);
+}
+
+a.back-home:active{
+  background-color: var(--color-principal-focus);
 }
 
 #preview {
@@ -289,5 +313,9 @@ a.back-home img {
 
   button{
     padding: 0.8rem 5rem;
+  }
+
+  #preview .status > span{
+    width: 100px;
   }
 }

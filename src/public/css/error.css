@@ -84,6 +84,10 @@ body:before {
   transform: scale(0.95, 0.9);
 }
 
+.button-home:active{
+  background-color: #9ecdffb3;
+}
+
 .footer {
   color: #ccc;
   background-color: #2061bdaf;

@@ -74,8 +74,8 @@ router.post("/", upload.single("file"), async (req, res) => {
       });
     }
 
-    console.log(req.file); // Verifica si req.file contiene la información del archivo
-    console.log(req.body.resolution); // Verifica si req.body.uploadOption contiene el valor de enviado
+    //console.log(req.file); // Verifica si req.file contiene la información del archivo
+    //console.log(req.body.resolution); // Verifica si req.body.uploadOption contiene el valor de enviado
 
     //aqui le paso como parametro lo que la ruta de destino de la imagen y la resolusion de la misma
     await helperprocessImage(req.file.destination, req.body.resolution);
@@ -94,7 +94,7 @@ router.post("/", upload.single("file"), async (req, res) => {
 
 
   } catch (error) {
-    console.error("Error to processs image in routers:", error);
+    //console.error("Error to processs image in routers:", error);
     res.status(500).send(`Ocurrió un error al procesar la imagen ${req.file.originalname}`);
   }
 });

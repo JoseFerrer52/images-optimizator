@@ -37,12 +37,12 @@ async function processImg(filePath, resolution) {
           }) /* Comprimir imagen JPG con calidad del 80% */,
           imageminPngquant() /* Comprimir imagen PNG */,
           imageminSvgo() /* Comprimir imagen SVGO */,
-          //imageminWebp({quality: 80,}) /* Comprimir imagen con calidad del 80% */,
+          imageminWebp({quality: 80,}) /* Comprimir imagen con calidad del 80% */,
           imageminGifsicle() /* Comprimir imagen GIF */,
         ],
       });
 
-      console.log(`se ha optimizado la imagen: ${file}`);
+      //console.log(`se ha optimizado la imagen: ${file}`);
       
       // este setTimeout elimina la imagen original que ya no se necesita
       setTimeout(async () => {
@@ -52,9 +52,9 @@ async function processImg(filePath, resolution) {
            deleteOldImagesOfOutput(outputFolder, maxTime);
 
         } catch (error) {
-          console.log("Ocurrió un error al eliminar la imagen:", error);
+          //console.log("Ocurrió un error al eliminar la imagen:", error);
         }
-      }, maxTime); // Espera  1 segundo antes de intentar eliminar el archivo
+      }, maxTime); // Espera  10 segundo antes de intentar eliminar el archivo
 
      
         
@@ -65,7 +65,7 @@ async function processImg(filePath, resolution) {
 
     
   } catch (error) {
-    console.log("ocurrio un error desde processImage:", error);
+    //console.log("ocurrio un error desde processImage:", error);
   }
 }
 

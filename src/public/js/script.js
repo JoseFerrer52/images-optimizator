@@ -25,11 +25,14 @@ dropArea.addEventListener("click", (event) => {
 selectedOption.addEventListener('change',
   function(){
     resolution = this.options[selectedOption.selectedIndex].value;
-    console.log(resolution);
+    //console.log(resolution);
   });
 
 buttonForUploadFile.addEventListener("click", (event) => {
   // Validando si la variable fileUploaded tiene valor, subes el archivo que está guardado en dicha variable
+  if (!resolution){
+    alert("Debe seleccionar una resolución para optimizar la imagen")
+  }
   if (fileUploaded && resolution) {
     uploadFile(fileUploaded, resolution)
     buttonForUploadFile.setAttribute('disabled', 'disabled')
@@ -40,7 +43,7 @@ buttonForUploadFile.addEventListener("click", (event) => {
 estan cambiando y asi subirlos aun servido */
 input.addEventListener("change", (event) => {
   files = event.target.files[0];
-  console.log(files);
+  //console.log(files);
   dropArea.classList.add("active");
   showFiles(files);
   dropArea.classList.remove("active");
@@ -129,7 +132,7 @@ async function uploadFile(file, resolution) {
     
   } catch (error) {
     alert(error);
-    console.log(error);
+    //console.log(error);
   }
 }
 

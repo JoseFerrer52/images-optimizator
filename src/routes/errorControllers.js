@@ -6,8 +6,8 @@ const errorRouter = (req, res, next) => {
 };
 
 const errorServer = (err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send(`error 500 Algo se rompio XD!`);
+  //console.error(err.stack);
+  res.status(500).send(`Ocurrio un error en el servidor`);
 };
 
 export { errorRouter, errorServer };

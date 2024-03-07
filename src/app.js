@@ -10,6 +10,7 @@ import helmet from "helmet"; //El paquete helmet para configurar automáticament
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const port = 3000
 
 app.set("views", join(__dirname, "views"))
 app.set("view engine", ejs);
@@ -29,6 +30,6 @@ app.use(router);
 app.use(errorRouter)
 app.use(errorServer)
 
-app.listen(5500, () => {
-  console.log("server is listerning on port 5500")
+app.listen(port, () => {
+  console.log(`server is listerning on port ${port}`)
 })
