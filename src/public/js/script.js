@@ -35,8 +35,10 @@ buttonForUploadFile.addEventListener("click", (event) => {
     alert("Debe seleccionar una resolución para optimizar la imagen")
   }
   if (fileUploaded && resolution) {
-    uploadFile(fileUploaded, resolution)
+  buttonForUploadFile.textContent = "Subiendo..."
+    
     buttonForUploadFile.setAttribute('disabled', 'disabled')
+    uploadFile(fileUploaded, resolution)
   }})
 
 
