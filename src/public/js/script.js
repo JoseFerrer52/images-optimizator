@@ -4,6 +4,7 @@ const dragText = dropArea.querySelector(".drag-text");
 const input = dropArea.querySelector("#input-file");
 const buttonForUploadFile = document.querySelector("#uploadFile");
 const selectedOption = document.querySelector("#select-quality")
+const maxTimeButtonDownload = 600000
 let files;
 let fileUploaded;
 let resolution;
@@ -128,7 +129,7 @@ async function uploadFile(file, resolution) {
 
     setTimeout(() => {
       document.querySelector("#view").remove();
-    },86400000);
+    },maxTimeButtonDownload);
     
   } catch (error) {
     alert(error);

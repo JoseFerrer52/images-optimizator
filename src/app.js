@@ -22,14 +22,12 @@ app.use(express.static(join(__dirname, "public/js")));
 app.use("/output", express.static(join(__dirname, 'output')));
 app.use(express.json())
 app.use(helmet());
-app.use(cors({
-    origin: 'http://localhost:5500/'
-  }));
+app.use(cors());
 
 app.use(router);
 app.use(errorRouter)
 app.use(errorServer)
 
 app.listen(port, () => {
-  console.log(`server is listerning on port ${port}`)
+  //console.log(`server is listerning on port ${port}`)
 })
