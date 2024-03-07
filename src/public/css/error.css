@@ -16,12 +16,14 @@ body {
   background-image: url("background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-color: rgba(203, 231, 243); */
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
   min-height: 100vh;
-  /* margin-bottom: 50%; */
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-flow: column wrap;
 }
 
 body:before {
@@ -53,6 +55,7 @@ body:before {
   letter-spacing: 1px;
 }
 .div h1 {
+  margin-top: 5rem;
   z-index: 10;
 }
 
@@ -89,8 +92,8 @@ body:before {
   padding: 0.4rem 0;
   position: relative;
   bottom: 0;
-  width: 100%;
-  margin-top: 52vh;
+  width: 100vw;
+  font-size: 16px;
 }
 
 .footer a {
@@ -103,10 +106,6 @@ body:before {
 }
 
 @media screen and (max-width: 768px) {
-  h1 {
-    font-size: 30px;
-  }
-
   .description,
   .files {
     margin: 0 auto 1rem;
@@ -114,5 +113,25 @@ body:before {
 
   .description {
     font-size: 16px;
+  }
+
+  .div {
+    font-size: calc(20px + 2vw);
+    padding: 1rem;
+  }
+
+  .div h1 {
+    font-size: calc(20px + 5vw);
+    margin-top: 30vw;
+  }
+
+  .message {
+    margin: 0 0 1.6rem;
+    font-size: calc(16px + 2vw);
+  }
+
+  .button-home {
+    font-size: 1.5rem;
+    padding: 0.6rem 5rem;
   }
 }

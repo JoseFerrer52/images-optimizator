@@ -70,8 +70,8 @@ function processFile(file) {
     const image = `
             <div class="file-container">
               <div class="status">
+              <p>Archivo cargado:</p>
                 <span>${file.name}<span/>
-                <span class="status-text">Archivo cargado<span/>
               <div/>
             <div/>
             `;
@@ -102,17 +102,20 @@ async function uploadFile(file, resolution) {
     });
 
     const responseText = await response.json();
-    console.log(responseText.optimizedImagePath);
 
-    document.querySelector(`.status-text`).innerHTML = `<span class="success">Archivo subido correctamente<span/>`;
+    if(responseText.status && responseText.status === 400){
+      throw responseText.errorMessage 
+    }
 
     const imgRoute = `${window.location.origin}/${responseText.optimizedImagePath}`;
     
     //en la variable imgName se esta seleccionando el nombre que tendra la imagen al momento de descargarse
     const imgName = responseText.optimizedImagePath.split("/")[1];
 
-    const img = `<a class="dowloadFile" id="dowloadFile" href="${imgRoute}" target="_blank" download="${imgName}">Descargar Imagen xd</a>`;
+    const img = `<a class="dowloadFile" id="dowloadFile" href="${imgRoute}" target="_blank" download="${imgName}">Descargar Imagen <img src="/download.png"></a>`,
+    backHome = `<a class="back-home" id="back-home" href="/"><img src="/home.png"> volver atrás</a>`;
     document.querySelector("#view").innerHTML = img;
+    document.querySelector("#back-home").innerHTML = backHome;
     document.querySelector("#preview").remove();
     document.querySelector("#content-quality").remove()
     document.querySelector(".drop-area").remove()
@@ -122,10 +125,11 @@ async function uploadFile(file, resolution) {
 
     setTimeout(() => {
       document.querySelector("#view").remove();
-    },600000);
+    },86400000);
     
   } catch (error) {
-    document.querySelector(`.status-text`).innerHTML = `<span class="error">El archivo no pudo subirse...<span/>`;
+    alert(error);
+    console.log(error);
   }
 }
 

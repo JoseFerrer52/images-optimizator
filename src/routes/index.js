@@ -54,16 +54,24 @@ router.post("/", upload.single("file"), async (req, res) => {
 
     // valida el tipo de archivo
     if (!allowedMimeTypes.includes(req.file.mimetype)) {
-      return res.status(400).send("Formato de archivo inválido");
+      return res.json({
+        status: 400,
+        errorMessage: `El formato del archivo es inválido`,
+      });
     }
     // Valida la resolución de la imagen
     if (!allowedResolutions.includes(req.body.resolution)) {
-      return res.status(400).send("Formato de archivo inválido");
+      return res.json({
+        status: 400,
+        errorMessage: `La resolución del archivo es inválida`,
+      });
     }
     // Valida que el nombre de la imagen no sea tan largo
     if (!allowedMaximumCharacters.test(req.file.originalname)) {
-      console.log("error desde el nombre");
-      return res.status(400).send("El nombre del archivo es muy largo")
+      return res.json({
+        status: 400,
+        errorMessage: `El nombre del archivo es demasiado largo`,
+      });
     }
 
     console.log(req.file); // Verifica si req.file contiene la información del archivo
@@ -77,6 +85,8 @@ router.post("/", upload.single("file"), async (req, res) => {
 
     // Envía un mensaje de éxito al cliente junto con la ruta de la imagen optimizada
     res.json({
+      status: 200,
+      errorMessage:"",
       message: `Archivo ${req.file.originalname} subido correctamente al servidor`,
       optimizedImagePath: optimizedImagePath,
     });
