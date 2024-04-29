@@ -10,10 +10,8 @@ async function deleteOldImagesOfOutput(directory, maxAge) {
         const filePath = path.join(directory, file);
         const stats = await fs.promises.stat(filePath);
   
-        // Comprueba si el archivo es más antiguo que maxAge
         if (now - stats.mtimeMs > maxAge) {
           await fs.promises.unlink(filePath);
-          //console.log(`Eliminada imagen antigua: ${filePath}`);
         }
       }
     } catch (error) {
@@ -21,7 +19,6 @@ async function deleteOldImagesOfOutput(directory, maxAge) {
     }
   }
 
-  // Función para eliminar imágenes antiguas
 async function deleteOldImagesOfInput(inputPath, maxAge) {
     try {
       const files = await fs.promises.readdir(inputPath);
@@ -31,7 +28,6 @@ async function deleteOldImagesOfInput(inputPath, maxAge) {
         const filePath = path.join(inputPath, file);
         const stats = await fs.promises.stat(filePath);
   
-        // Comprueba si el archivo es más antiguo que maxAge
         if (now - stats.mtimeMs > maxAge) {
           await fs.promises.unlink(filePath);
           //console.log(`Eliminada imagen antigua: ${filePath}`);
