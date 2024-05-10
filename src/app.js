@@ -8,9 +8,12 @@ import { resError } from "./utilities/resError.js";
 import logger from "morgan"
 import cors from "cors"
 import helmet from "helmet";
+import dontev from "dotenv"
+
+dontev.config()
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.set("views", join(__dirname, "views"))
 app.set("view engine", ejs);
