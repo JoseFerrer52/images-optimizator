@@ -8,12 +8,9 @@ import { resError } from "./utilities/resError.js";
 import logger from "morgan"
 import cors from "cors"
 import helmet from "helmet";
-import dontev from "dotenv"
 
-dontev.config()
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const port = process.env.PORT || 3000
 
 app.set("views", join(__dirname, "views"))
 app.set("view engine", ejs);
@@ -34,6 +31,5 @@ app.use((error, req, res, next)=>{
   resError(res, status, message, name, path)
 })
 
-app.listen(port, () => {
-  //console.log(`server is listerning on port ${port}`)
-})
+export {app}
+
