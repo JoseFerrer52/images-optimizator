@@ -8,4 +8,4 @@ It is an MVC application whose function is to optimize and compress images, usin
 4. Go to http://localhost:3000/ at your browser to see the app
 
 # App running
-5. [View the application](https://images-optimizator.onrender.com)
+5. [View the application](https://images-optimizator-1.onrender.com)
